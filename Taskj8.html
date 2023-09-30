@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS TASK 8</title>
+    <style>
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        #grad {
+            background-image: linear-gradient(to top, #D676BB, #FAFAC8);
+            width: 600px;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td {
+            width: 80%;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            margin-left:10px;
+        }
+
+        .input-container {
+            display: flex;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("pass").value;
+            let repass = document.getElementById("repass").value;
+            let age = document.getElementById("age").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let state = document.getElementById("state").value;
+            let hasErrors = false;
+            var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+            var regPass = /^[A-Za-z]\w{7,14}$/;
+            var regPhone = /^\d{10}$/;
+            if (fname == null || fname == "") {
+                document.getElementById("error1").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error1").innerHTML = "";
+            }
+            if (lname == null || lname == "") {
+                document.getElementById("error2").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error2").innerHTML = "";
+            }
+            if (email == "" || !regEmail.test(email)) {
+                document.getElementById("error3").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error3").innerHTML = "";
+            }
+            if (pass == "" || !regPass.test(pass)) {
+                document.getElementById("error4").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error4").innerHTML = "";
+            }
+            if (repass == pass && repass != "") {
+                document.getElementById("error5").innerHTML = "";
+            } else {
+                document.getElementById("error5").innerHTML = "";
+                document.getElementById("error5").innerHTML =
+                    "POOR OR MISMATCH";
+                hasErrors = true;
+            }
+            if (age == null || age == "") {
+                document.getElementById("error6").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error6").innerHTML = "";
+            }
+            if (phone == "" || !regPhone.test(phone)) {
+                document.getElementById("error7").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error7").innerHTML = "";
+            }
+            if (address == null || address == "") {
+                document.getElementById("error8").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error8").innerHTML = "";
+            }
+            if (state == null || state == "") {
+                document.getElementById("error9").innerHTML =
+                    "POOR";
+                hasErrors = true;
+            } else {
+                document.getElementById("error9").innerHTML = "";
+            }
+            if (hasErrors == true) {
+                document.getElementById("grad").style.paddingRight = "150px";
+            }
+            return !hasErrors;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grad">
+        <h1>Registration Form</h1>
+        <form>
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <td>
+                        <div class="input-container">
+                            <input id="fname" type="text" />
+                            <span class="error" id="error1"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>
+                        <div class="input-container">
+                            <input id="lname" type="text" />
+                            <span class="error" id="error2"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>
+                        <div class="input-container"><input id="email" type="email" /><span class="error"
+                                id="error3"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>
+                        <div class="input-container"><input id="pass" type="password" /><span class="error"
+                                id="error4"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Re-enter Password</th>
+                    <td>
+                        <div class="input-container"><input id="repass" type="password" /><span class="error"
+                                id="error5"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="2">Gender:</th>
+                    <td><input id="male" name="gender" type="radio" />Male</td>
+                </tr>
+                <tr>
+                    <td><input id="female" name="gender" type="radio" />Female</td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td>
+                        <div class="input-container"><input id="age" type="number" /><span class="error"
+                                id="error6"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td>
+                        <div class="input-container"><input id="phone" type="number" /><span class="error"
+                                id="error7"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        <div class="input-container"><textarea id="address" rows="5" cols="20"></textarea><span
+                                class="error" id="error8"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>
+                        <div class="input-container"><input id="state" type="text" /><span class="error"
+                                id="error9"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>
+                        <select>
+                            <option value="" disabled selected>Choose your country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">India</option>
+                            <option value="uk">United Kingdom</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Languages known</th>
+                    <td>
+                        <input type="checkbox" />English<input type="checkbox" />Kannada<input
+                            type="checkbox" />Hindi<input type="checkbox" />Telugu
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" /> Hereby I declare all the given details
+                        are true
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right">
+                        Login in to <a href="https://ethnus.com/">Ethnus</a> website
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="center">
+                <input type="button" value="REGISTER" onClick="myFunction()"  style="background-color: #F70200; border-radius: 20px; color: white; padding: 5px 10px; cursor: pointer;"/>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

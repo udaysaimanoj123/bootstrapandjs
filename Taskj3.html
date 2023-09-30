@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            margin:5px;
+        }
+        div{
+            border:solid black;
+            display:inline-block;
+            padding:30px;
+            font-weight:bolder;
+            margin:200px;
+        }
+        #result{
+            margin-top: 30px;
+        }
+        button{
+            padding:5px 9px;
+            font-weight: bolder;
+            border-radius:5px;
+            font-size: 15px;
+            margin:10px
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for = "firstnum"><h2>1st Number:</label>
+        <input type =  "number" id = "firstnum" name = "firstnum" placeholder = "Enter first number"><br><br>
+        <label for = "secondnum">2nd Number:</label>
+        <input type = "number" id = "secondnum" name = "secondnum" placeholder = "Enter second number"><br><br>
+        <button onclick="Multiply()" id = "multiply">Multiply</button>
+        <button onclick = "Divide()" id = "multiply">Divide</button>
+        <h2 id = "result"></h2>
+        <h2 id = "solution"></h2>
+    </div>
+    <script>
+        function Multiply(){
+            document.getElementById("result").innerHTML="The Result is:";
+            let num1 = document.getElementById("firstnum").value;
+            let num2 = document.getElementById("secondnum").value;
+            document.getElementById("solution").innerHTML=num1*num2;
+            
+        }
+        function Divide(){
+            document.getElementById("result").innerHTML="The Result is:";
+            let num1 = document.getElementById("firstnum").value;
+            let num2 = document.getElementById("secondnum").value;
+            document.getElementById("solution").innerHTML=num1/num2;
+            
+        }
+    </script>
+</body>
+</html>

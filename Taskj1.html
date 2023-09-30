@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <label for = "number">Enter number to reverse:</label>
+    <input type = "text" id = "number" name = "number" placeholder="Enter number to reverse">
+    <button onclick = "print()">Submit</button>
+    <script>
+     function print(){
+       const num =  document.getElementById("number").value;
+       let reversednum = ""
+       for(i=num.length-1;i>=0;i--){
+            reversednum += num[i];
+       }
+       document.write(num + " after reversing = " + reversednum);
+     }
+    </script>
+</body>
+</html>

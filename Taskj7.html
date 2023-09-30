@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin: 5px;
+            padding: 2px 9px;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        body {
+            padding-top: 100px;
+        }
+        #img {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="img"><img src="train.png" id="train-img"></div>
+    <div class="main">
+        <div><h1>Click the following buttons to handle animation</h1></div>
+        <div><button onclick="start()">Start</button><button onclick="stop()">Stop</button></div>
+    </div>
+    <script>
+        let id; 
+        let pos = 0;
+        function start() {
+            let img = document.getElementById("train-img"); 
+            
+            clearInterval(id);
+            id = setInterval(frame, 20);
+
+            function frame() {
+                if (pos == 1200) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    img.style.marginLeft = pos + "px"; 
+                    if(pos===1200){
+                        pos=0;
+                    }
+                }
+            }
+        }
+
+        function stop() {
+            clearInterval(id);
+        }
+    </script>
+</body>
+</html>

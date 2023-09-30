@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="date()">Show date</button>
+        <h2 id = "date"></h2>
+        <button onclick = "time()">Show Time</button>
+        <h2 id = "time"></h2>
+    </div>
+    <script>
+        function date(){
+            const date =  new Date();
+            let curr_day = date.getDate();
+            let curr_month = date.toLocaleString('default', { month: 'long' });
+            let curr_year = date.getFullYear();
+            let curr_date = curr_day + "/" + curr_month +"/" + curr_year;
+            document.getElementById("date").innerHTML = curr_date;
+
+        }
+        function time(){
+            const curr_time = new Date();
+            document.getElementById("time").innerHTML = curr_time;
+        }
+    </script>
+</body>
+</html>

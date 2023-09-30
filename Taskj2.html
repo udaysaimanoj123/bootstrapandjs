@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="String">Enter String to print string in alphabetical order:</label>
+    <input type = "text" name = "String" id = "String" Placeholder = "enter String ">
+    <button onclick ="sortstr()">Submit</button>
+    <script>
+      let ordered_string = "";
+     
+      function sortstr(){
+        let string = [];
+        const str = document.getElementById("String").value;
+          for(i=0;i<str.length;i++){
+           string[i] = str[i];
+           string.sort();
+          }
+          let sorted= "";
+          for(i=0;i<string.length;i++){
+            sorted+=string[i];
+          }
+          document.write(str+ " after sorting = " + sorted);
+          
+      }
+    </script>
+</body>
+</html>
